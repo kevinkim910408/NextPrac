@@ -3,7 +3,7 @@ import { metaConfig } from '@/../meta.config';
 import { notoSans } from '@/fonts';
 
 // static metadata
-export const metadata = { ...metaConfig };
+// export const metadata = { ...metaConfig };
 
 export default function RootLayout({
   children,
