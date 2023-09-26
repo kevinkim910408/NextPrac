@@ -15,7 +15,7 @@ const MongoComponent = async () => {
 
   console.log(result);
 
-  return <main>{}</main>;
+  return <main>{result[0].name}</main>;
 };
 
 export default MongoComponent;
