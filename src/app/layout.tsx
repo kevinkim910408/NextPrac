@@ -1,6 +1,7 @@
 import './globals.css';
 import { metaConfig } from '@/../meta.config';
 import { notoSans } from '@/fonts';
+import Link from 'next/link';
 
 // static metadata
 // export const metadata = { ...metaConfig };
@@ -21,7 +22,9 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body>
-        <h1>Study with Next v.13</h1>
+        <Link href={'/'}>
+          <h1 className="main-title">Study with Next v.13</h1>
+        </Link>
         {children}
       </body>
     </html>

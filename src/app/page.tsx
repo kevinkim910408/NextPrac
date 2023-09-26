@@ -1,19 +1,10 @@
-import { connectMongoDB } from '@/config/MongoDB';
+import Card from '@/components/00_common/Card';
+import { DATABASE, HOME_TITLES } from '@/data/const';
 
-const { DB_NAME, COLLECTION_NAME_01 } = process.env;
-
-export default async function Home() {
-  if (!DB_NAME) throw new Error('DB_NAME is not defined.');
-  if (!COLLECTION_NAME_01)
-    throw new Error('COLLECTION_NAME_01 is not defined.');
-
-  const db = await connectMongoDB(DB_NAME);
-  const collectionName = COLLECTION_NAME_01;
-
-  const collection = db.collection(collectionName);
-  const result = await collection.find().toArray();
-
-  console.log(result);
-
-  return <main>Home</main>;
+export default function Home() {
+  return (
+    <main>
+      <Card title={HOME_TITLES[0]} data={DATABASE} />
+    </main>
+  );
 }
