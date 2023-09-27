@@ -4,32 +4,46 @@ import './dbStyles.css';
 const MongoComponent = async () => {
   const mongoData = await fetchData();
   return (
-    <div className="card-item-wrapper">
+    <>
       {mongoData.data?.map((v: MongoType, i: number) => {
         return (
-          <section key={i + `mongoCard`}>
+          <section
+            key={i + `mongoCard`}
+            className="card-item-wrapper db-min-height"
+          >
             <div className="card-item-bg" />
             <div className="card-item-content-box">
-              <span className="front-span">Name: </span> <span>{v.name}</span>
+              <span className="front-span yellow-bold">Name: </span>
+              <span className="back-span" title={v.name}>
+                {v.name}
+              </span>
             </div>
             <div className="card-item-content-box">
-              <span className="front-span">Age: </span> <span>{v.age}</span>
+              <span className="front-span yellow-bold">Age: </span>
+              <span className="back-span" title={String(v.age)}>
+                {v.age}
+              </span>
             </div>
             <div className="card-item-content-box">
-              <span className="front-span">Email: </span> <span>{v.email}</span>
+              <span className="front-span yellow-bold">Email: </span>
+              <span className="back-span" title={v.email}>
+                {v.email}
+              </span>
             </div>
             <div className="card-item-content-box">
-              <span className="front-span">Hobby: </span>
+              <span className="front-span yellow-bold">Hobby: </span>
               <div className="hobby-wapper">
                 {v.hobbies?.map((str: string, ii: number) => (
-                  <span key={ii + `hobby`}>{str}</span>
+                  <span key={ii + `hobby`} className="back-span" title={str}>
+                    {str}
+                  </span>
                 ))}
               </div>
             </div>
           </section>
         );
       })}
-    </div>
+    </>
   );
 };
 
@@ -37,7 +51,7 @@ export default MongoComponent;
 
 async function fetchData() {
   const res = await fetch(`${process.env.SERVER_ENV}/api/db/mongo`, {
-    // cache: 'no-store',
+    cache: 'no-store',
   });
   const data = await res.json();
   return data;

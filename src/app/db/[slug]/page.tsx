@@ -17,7 +17,9 @@ const DB = ({ params }: { params: { slug: string } }) => {
   };
   return (
     <div className="page-wrapper">
-      <h1 className="sub-title">- {params.slug.toUpperCase()}</h1>
+      <h1 className="sub-title">
+        - {params.slug.toUpperCase()} (Hover to see hidden text)
+      </h1>
       <div className="page-content">{Switcher(params.slug)}</div>
     </div>
   );

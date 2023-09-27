@@ -1,8 +1,18 @@
 .front-span {
-  width: 50px;
+  min-width: 50px;
 }
 
 .hobby-wapper {
   display: flex;
   flex-direction: column;
+}
+
+.db-min-height {
+  min-height: 180px;
+}
+
+.back-span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
