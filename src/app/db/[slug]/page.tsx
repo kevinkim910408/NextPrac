@@ -1,4 +1,5 @@
 import MongoComponent from '@/components/01_DB/MongoComponent';
+import './styles.css';
 
 const DB = ({ params }: { params: { slug: string } }) => {
   const Switcher = (type: String) => {
@@ -6,6 +7,7 @@ const DB = ({ params }: { params: { slug: string } }) => {
       case 'mongo':
         /* @ts-expect-error Async Server Component */
         return <MongoComponent />;
+        return <></>;
       case 'postgres':
         return <></>;
       case 'mysql':
@@ -15,10 +17,10 @@ const DB = ({ params }: { params: { slug: string } }) => {
     }
   };
   return (
-    <main>
-      <h1 className="sub-title">{params.slug.toUpperCase()}</h1>
-      {Switcher(params.slug)}
-    </main>
+    <div className="db-wrapper">
+      <h1 className="sub-title">- {params.slug.toUpperCase()}</h1>
+      <div className="db-contents">{Switcher(params.slug)}</div>
+    </div>
   );
 };
 

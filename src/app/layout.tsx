@@ -25,7 +25,7 @@ export default function RootLayout({
         <Link href={'/'}>
           <h1 className="main-title">Study with Next v.13</h1>
         </Link>
-        <div>{children}</div>
+        <div className="contents-wrapper">{children}</div>
       </body>
     </html>
   );
