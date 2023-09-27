@@ -4,7 +4,7 @@ import './dbStyles.css';
 const MongoComponent = async () => {
   const mongoData = await fetchData();
   return (
-    <>
+    <div className="page-content dbpage-overflow-controll">
       {mongoData.data?.map((v: MongoType, i: number) => {
         return (
           <section
@@ -43,7 +43,7 @@ const MongoComponent = async () => {
           </section>
         );
       })}
-    </>
+    </div>
   );
 };
 
