@@ -8,11 +8,12 @@
 }
 
 .db-min-height {
-  min-height: 180px;
+  min-height: 165px;
 }
 
 .back-span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 100px;
 }

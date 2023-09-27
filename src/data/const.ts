@@ -4,7 +4,7 @@ export const HOME_TITLES = {
 
 export const DATABASE = [
   {
-    title: 'Mongo DB',
+    title: 'Mongo',
     date: '09-xx-2023',
     link: '/db/mongo',
   },
