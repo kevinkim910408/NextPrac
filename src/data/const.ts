@@ -5,17 +5,17 @@ export const HOME_TITLES = {
 export const DATABASE = [
   {
     title: 'Mongo',
-    date: '09-xx-2023',
+    date: 'Sep-2023',
     link: '/db/mongo',
   },
   {
     title: 'PostgreSQL',
-    date: '09-xx-2023',
+    date: 'TBA',
     link: '/db/postgres',
   },
   {
     title: 'My SQL',
-    date: '09-xx-2023',
+    date: 'TBA',
     link: '/db/mysql',
   },
 ];
