@@ -1,27 +1,8 @@
-.db-component-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: #eeeeee25;
-  border-radius: 28px;
-  padding: 2rem;
-}
-.db-card-wrapper {
-  overflow: hidden;
-  margin: 0.5rem;
-  width: 200px;
-  display: block;
-  padding: 30px 20px;
-  background-color: #121212;
-  border-radius: 28px;
-  font-size: 1.5rem;
-}
-
-.db-content-wrapper {
-  display: flex;
-}
-
 .front-span {
-  width: 60px;
+  width: 50px;
+}
+
+.hobby-wapper {
+  display: flex;
+  flex-direction: column;
 }

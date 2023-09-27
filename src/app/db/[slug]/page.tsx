@@ -1,5 +1,4 @@
 import MongoComponent from '@/components/01_DB/MongoComponent';
-import './styles.css';
 
 const DB = ({ params }: { params: { slug: string } }) => {
   const Switcher = (type: String) => {
@@ -17,9 +16,9 @@ const DB = ({ params }: { params: { slug: string } }) => {
     }
   };
   return (
-    <div className="db-wrapper">
+    <div className="page-wrapper">
       <h1 className="sub-title">- {params.slug.toUpperCase()}</h1>
-      <div className="db-contents">{Switcher(params.slug)}</div>
+      <div className="page-content">{Switcher(params.slug)}</div>
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import './card.css';
 
 interface DataType {
   title: string;
@@ -15,9 +14,9 @@ interface Props {
 
 const Card: React.FC<Props> = ({ title, data }) => {
   return (
-    <main className="card-wrapper">
+    <main className="page-wrapper">
       <h1 className="sub-title"> - {title}</h1>
-      <div className="card-content">
+      <div className="page-content">
         {data.map((item: DataType, index: number) => (
           <CardItem key={index} data={item} />
         ))}
@@ -30,13 +29,13 @@ export default Card;
 
 const CardItem: React.FC<{ data: DataType }> = ({ data }) => {
   return (
-    <div className="card-item">
-      <Link href={`${data.link}`} className="card-item-link">
-        <div className="card-item-bg"></div>
+    <div className="card-item-wrapper">
+      <Link href={`${data.link}`}>
+        <div className="card-item-bg" />
         <div className="card-item-title">{data.title}</div>
-        <div className="card-item-date-box">
+        <div className="card-item-content-box">
           <span>Date: </span>
-          <span className="card-item-date">{data.date}</span>
+          <span className="yellow-bold">{data.date}</span>
         </div>
       </Link>
     </div>

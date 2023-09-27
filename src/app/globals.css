@@ -1,6 +1,3 @@
-@media (prefers-color-scheme: dark) {
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -11,12 +8,15 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background: #191c29;
+
   color: rgb(220, 217, 238);
+  font-size: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 10px;
+
+  background: #191c29;
+
   padding: 40px;
 }
 
@@ -26,6 +26,7 @@ a {
   font-weight: bold;
 }
 
+/* COMMON */
 .main-title {
   font-size: 4rem;
 }
@@ -34,8 +35,109 @@ a {
   font-size: 2rem;
 }
 
+.yellow-bold {
+  font-weight: bold;
+  color: #f9b234;
+
+  -webkit-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+/* LAYOUT */
 .contents-wrapper {
   max-width: 750px;
   width: 100%;
+
   margin-top: 2rem;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  background-color: #eeeeee25;
+
+  border-radius: 28px;
+
+  padding: 2rem;
+}
+
+/* CARD */
+
+.card-item-wrapper {
+  width: 200px;
+  margin: 0.5rem;
+  padding: 30px 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background-color: #121212;
+}
+
+.card-item-wrapper:hover,
+.card-item-wrapper:hover .yellow-bold {
+  text-decoration: none;
+  color: #fff;
+}
+
+.card-item-wrapper:hover .card-item-bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+.card-item-title {
+  min-height: 50px;
+  overflow: hidden;
+
+  font-weight: bold;
+  font-size: 3rem;
+  color: #fff;
+
+  z-index: 2;
+  position: relative;
+}
+.card-item-content-box {
+  font-size: 1.5rem;
+  color: #fff;
+
+  z-index: 2;
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+.card-item-bg {
+  height: 128px;
+  width: 128px;
+  background-color: #f9b234;
+
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.card-item-wrapper:nth-child(2n) .card-item-bg {
+  background-color: #3ecd5e;
+}
+.card-item-wrapper:nth-child(3n) .card-item-bg {
+  background-color: #e44002;
 }
