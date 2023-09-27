@@ -1,6 +1,6 @@
 .card-wrapper {
-  width: 750px;
-  height: 250px;
+  max-width: 750px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,16 +12,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   background-color: #eeeeee25;
   border-radius: 28px;
+  padding: 2rem;
 }
 
 .card-item {
-  -ms-flex-preferred-size: calc(33.33333% - 30px);
-  flex-basis: calc(33.33333% - 30px);
   overflow: hidden;
   border-radius: 28px;
   margin: 0.5rem;
+  width: 200px;
 }
 
 .card-item-link {
@@ -57,7 +58,7 @@
   position: relative;
 }
 .card-item-date-box {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #fff;
 
   z-index: 2;
