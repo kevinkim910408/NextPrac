@@ -22,8 +22,83 @@
   position: absolute;
   top: 15px;
   right: 5px;
+
   display: flex;
   justify-content: center;
   align-items: flex-end;
+
   z-index: 2;
+}
+
+/* form */
+.db-input-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  font-size: 2rem;
+
+  width: 100%;
+}
+
+.db-input-field-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  width: 100%;
+}
+
+.db-input-field-column {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+.db-input-hobby-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.7rem;
+}
+
+.db-submit-btn {
+  width: 200px;
+  height: 30px;
+
+  background-color: #121212;
+  border-radius: 28px;
+
+  color: #fff;
+  font-weight: 900;
+
+  cursor: pointer;
+}
+.db-submit-btn:hover {
+  background-color: #3b3b3b;
+}
+
+input {
+  width: 100%;
+  height: 30px;
+
+  color: #fff;
+  font-size: 2rem;
+
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #121212;
+  padding-left: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+@media (max-width: 560px) {
+  .db-input-field-wrapper {
+    flex-direction: column;
+  }
+  .db-input-field-column {
+    gap: 1rem;
+  }
 }

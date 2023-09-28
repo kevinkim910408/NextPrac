@@ -1,3 +1,4 @@
+import InputForm from '@/components/01_DB/InputForm';
 import ShowCard from '@/components/01_DB/ShowCard';
 
 const DB = ({ params }: { params: { slug: string } }) => {
@@ -5,8 +6,7 @@ const DB = ({ params }: { params: { slug: string } }) => {
     switch (type) {
       case 'mongo':
         /* @ts-expect-error Async Server Component */
-        return <ShowCard />;
-        return <></>;
+        return <ShowCard dbtype="mongo" />;
       case 'postgres':
         return <></>;
       case 'mysql':
@@ -20,7 +20,11 @@ const DB = ({ params }: { params: { slug: string } }) => {
       <h1 className="sub-title">
         - {params.slug.toUpperCase()} (Hover to see hidden text)
       </h1>
-      {Switcher(params.slug)}
+      <>{Switcher(params.slug)}</>
+      <h1 className="sub-title">
+        - Send data to {params.slug.toUpperCase()} DB
+      </h1>
+      <InputForm />
     </div>
   );
 };

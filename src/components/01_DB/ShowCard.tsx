@@ -1,12 +1,14 @@
-import { MongoType } from '@/data/type/databaseType';
+import { DBType } from '@/data/type/databaseType';
 import './dbStyles.css';
 import { RiDeleteBin5Line, RiEditLine } from 'react-icons/ri';
 
-const ShowCard = async () => {
-  const mongoData = await fetchData();
+type TDB = 'mongo' | 'postgres' | 'mysql';
+
+const ShowCard = async ({ dbtype }: { dbtype: TDB }) => {
+  const data = await fetchData(dbtype);
   return (
     <div className="page-content page-overflow-controll">
-      {mongoData.data?.map((v: MongoType, i: number) => {
+      {data?.map((v: DBType, i: number) => {
         return (
           <section
             key={i + `mongoCard`}
@@ -54,10 +56,19 @@ const ShowCard = async () => {
 
 export default ShowCard;
 
-async function fetchData() {
-  const res = await fetch(`${process.env.SERVER_ENV}/api/db/mongo`, {
-    cache: 'no-store',
-  });
-  const data = await res.json();
-  return data;
+async function fetchData(dbtype: TDB) {
+  switch (dbtype) {
+    case 'mongo':
+      const res = await fetch(`${process.env.SERVER_ENV}/api/db/mongo`, {
+        cache: 'no-store',
+      });
+      const data = await res.json();
+      return data.data;
+    case 'postgres':
+      return [];
+    case 'mysql':
+      return [];
+    default:
+      throw new Error(`Unknown type of DB: ${dbtype}`);
+  }
 }

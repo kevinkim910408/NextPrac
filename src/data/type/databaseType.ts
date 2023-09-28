@@ -1,4 +1,4 @@
-export interface MongoType {
+export interface DBType {
   name: string;
   email: string;
   age: number;
