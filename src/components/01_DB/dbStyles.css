@@ -18,8 +18,12 @@
   width: 100px;
 }
 
-.dbpage-overflow-controll {
-  max-height: 300px;
-  overflow-y: scroll;
-  scrollbar-gutter: stable both-edges;
+.db-icon-bottom {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 2;
 }

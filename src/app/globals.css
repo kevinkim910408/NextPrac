@@ -19,6 +19,17 @@ body {
 
   padding: 20px;
 }
+::-webkit-scrollbar {
+  display: block !important;
+  width: 15px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #080808;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #333232;
+}
 
 a {
   color: rgb(220, 217, 238);
@@ -85,9 +96,15 @@ a {
   flex-wrap: wrap;
 
   background-color: #eeeeee25;
-  border-radius: 28px;
+  border-radius: 10px;
 
   padding: 2rem;
+}
+
+.page-overflow-controll {
+  max-height: 300px;
+  overflow-y: scroll;
+  scrollbar-gutter: stable both-edges;
 }
 
 /* CARD */
@@ -144,8 +161,8 @@ a {
 
   z-index: 1;
   position: absolute;
-  top: -75px;
-  right: -75px;
+  top: -55px;
+  right: -55px;
 
   border-radius: 50%;
 
@@ -153,9 +170,15 @@ a {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-.card-item-wrapper:nth-child(2n) .card-item-bg {
+.card-item-wrapper:nth-child(2n + 1) .card-item-bg {
   background-color: #3ecd5e;
 }
-.card-item-wrapper:nth-child(3n) .card-item-bg {
+.card-item-wrapper:nth-child(3n + 1) .card-item-bg {
   background-color: #e44002;
+}
+.card-item-wrapper:nth-child(4n) .card-item-bg {
+  background-color: #af02e4;
+}
+.card-item-wrapper:nth-child(5n) .card-item-bg {
+  background-color: #02b7e4;
 }

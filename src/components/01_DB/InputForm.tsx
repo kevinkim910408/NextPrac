@@ -1,7 +1,7 @@
 import React from 'react';
 
-const DataShowField = () => {
+const InputForm = () => {
   return <div>DataShowField</div>;
 };
 
-export default DataShowField;
+export default InputForm;

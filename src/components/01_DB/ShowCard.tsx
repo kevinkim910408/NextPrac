@@ -1,16 +1,21 @@
 import { MongoType } from '@/data/type/databaseType';
 import './dbStyles.css';
+import { RiDeleteBin5Line, RiEditLine } from 'react-icons/ri';
 
-const MongoComponent = async () => {
+const ShowCard = async () => {
   const mongoData = await fetchData();
   return (
-    <div className="page-content dbpage-overflow-controll">
+    <div className="page-content page-overflow-controll">
       {mongoData.data?.map((v: MongoType, i: number) => {
         return (
           <section
             key={i + `mongoCard`}
             className="card-item-wrapper db-min-height"
           >
+            <div className="db-icon-bottom">
+              <RiEditLine size={27} cursor="pointer" />
+              <RiDeleteBin5Line size={27} cursor="pointer" />
+            </div>
             <div className="card-item-bg" />
             <div className="card-item-content-box">
               <span className="front-span yellow-bold">Name: </span>
@@ -47,7 +52,7 @@ const MongoComponent = async () => {
   );
 };
 
-export default MongoComponent;
+export default ShowCard;
 
 async function fetchData() {
   const res = await fetch(`${process.env.SERVER_ENV}/api/db/mongo`, {

@@ -1,11 +1,11 @@
-import MongoComponent from '@/components/01_DB/MongoComponent';
+import ShowCard from '@/components/01_DB/ShowCard';
 
 const DB = ({ params }: { params: { slug: string } }) => {
   const Switcher = (type: String) => {
     switch (type) {
       case 'mongo':
         /* @ts-expect-error Async Server Component */
-        return <MongoComponent />;
+        return <ShowCard />;
         return <></>;
       case 'postgres':
         return <></>;
