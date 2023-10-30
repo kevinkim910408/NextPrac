@@ -9,7 +9,7 @@ export type InputProps = {
   validation?: RegisterOptions;
 } & React.ComponentPropsWithoutRef<'input'>;
 
-export default function FormInput({
+export default function ReactHookFormInput({
   id,
   label,
   placeholder = '',
