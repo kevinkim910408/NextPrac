@@ -4,11 +4,25 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { fieldOptions } from '@/data/const';
 import { ReactHookFormInput } from '@/contexts';
 
-const InputFormComponent = () => {
+interface DataType {
+  name: string;
+  email: string;
+  age: string;
+  hobbh1?: string;
+  hobbh2?: string;
+  hobbh3?: string;
+}
+
+const InputFormComponent = ({ dbtype }: { dbtype: string }) => {
   const methods = useForm();
 
-  //temp
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = async (data: any) => {
+    try {
+      await sendData(dbtype, data);
+    } catch (error) {
+      console.error('Error sending data:', error);
+    }
+  };
   return (
     <div className="page-content">
       <FormProvider {...methods}>
@@ -43,3 +57,41 @@ const InputFormComponent = () => {
 };
 
 export default InputFormComponent;
+
+async function sendData(dbtype: string, data: DataType) {
+  const requestBody = {
+    age: data.age,
+    name: data.name,
+    email: data.email,
+    hobby: [data.hobbh1, data.hobbh2, data.hobbh3],
+  };
+
+  let url: any;
+
+  switch (dbtype) {
+    case 'mongo':
+      url = `/api/db/mongo`;
+      break;
+    case 'postgres':
+      break;
+    case 'mysql':
+      break;
+    default:
+      throw new Error(`Unknown type of DB: ${dbtype}`);
+  }
+
+  const res = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(requestBody),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    cache: 'no-cache',
+  });
+
+  if (!res.ok) {
+    throw new Error(`Failed to send data to ${dbtype}`);
+  }
+
+  return res.json();
+}

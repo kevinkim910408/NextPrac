@@ -2,7 +2,7 @@ import InputFormComponent from '@/components/01_DB/InputFormComponent';
 import ShowCard from '@/components/01_DB/ShowCard';
 
 const DB = ({ params }: { params: { slug: string } }) => {
-  const Switcher = (type: String) => {
+  const ShowCardSwitcher = (type: String) => {
     switch (type) {
       case 'mongo':
         /* @ts-expect-error Async Server Component */
@@ -20,11 +20,11 @@ const DB = ({ params }: { params: { slug: string } }) => {
       <h1 className="sub-title">
         - {params.slug.toUpperCase()} (Hover to see hidden text)
       </h1>
-      <>{Switcher(params.slug)}</>
+      <>{ShowCardSwitcher(params.slug)}</>
       <h1 className="sub-title">
         - Send data to {params.slug.toUpperCase()} DB
       </h1>
-      <InputFormComponent />
+      <InputFormComponent dbtype={params.slug} />
     </div>
   );
 };

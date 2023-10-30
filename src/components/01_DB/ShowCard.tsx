@@ -1,6 +1,7 @@
 import { DBType } from '@/data/type/databaseType';
 import './dbStyles.css';
 import { RiDeleteBin5Line, RiEditLine } from 'react-icons/ri';
+import { cache } from 'react';
 
 type TDB = 'mongo' | 'postgres' | 'mysql';
 
@@ -60,7 +61,8 @@ async function fetchData(dbtype: TDB) {
   switch (dbtype) {
     case 'mongo':
       const res = await fetch(`${process.env.SERVER_ENV}/api/db/mongo`, {
-        cache: 'no-store',
+        cache: 'no-cache',
+        method: 'GET',
       });
       const data = await res.json();
       return data.data;

@@ -6,6 +6,8 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const { DB_NAME, COLLECTION_NAME_01 } = process.env;
+  const { method } = req;
+
   if (!DB_NAME) {
     return res.status(500).json({ error: 'DB_NAME is not defined.' });
   }
@@ -20,9 +22,16 @@ export default async function handler(
     const collectionName = COLLECTION_NAME_01;
 
     const collection = db.collection(collectionName);
-    const result = await collection.find().toArray();
 
-    res.status(200).json({ data: result });
+    switch (method) {
+      case 'GET':
+        const fetchData = await collection.find().toArray();
+        return res.status(200).json({ data: fetchData });
+      case 'POST':
+        console.log(req.body);
+        await collection.insertOne(req.body);
+        return res.status(201).json({ message: 'Data inserted successfully!' });
+    }
   } catch (error) {
     throw new Error(`${error}`);
   }
