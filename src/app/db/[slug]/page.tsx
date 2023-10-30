@@ -1,4 +1,4 @@
-import InputForm from '@/components/01_DB/InputForm';
+import InputFormComponent from '@/components/01_DB/InputFormComponent';
 import ShowCard from '@/components/01_DB/ShowCard';
 
 const DB = ({ params }: { params: { slug: string } }) => {
@@ -24,7 +24,7 @@ const DB = ({ params }: { params: { slug: string } }) => {
       <h1 className="sub-title">
         - Send data to {params.slug.toUpperCase()} DB
       </h1>
-      <InputForm />
+      <InputFormComponent />
     </div>
   );
 };

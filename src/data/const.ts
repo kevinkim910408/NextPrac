@@ -36,50 +36,41 @@ export const fieldOptions: { [key in FieldNames]: InputProps } = {
   name: {
     id: 'name',
     label: 'Name',
-    placeholder: 'hobby3',
+    placeholder: 'Name',
     validation: {
-      required: 'asd',
+      required: 'This field is Required.',
     },
   },
   email: {
     id: 'email',
     label: 'Email',
-    placeholder: 'hobby3',
+    placeholder: 'Email',
     validation: {
-      required: 'asd!',
+      required: 'This field is Required.',
     },
   },
   age: {
     id: 'age',
     label: 'Age',
-    placeholder: 'hobby3',
+    placeholder: 'Age',
     validation: {
-      required: 'asd!',
+      required: 'This field is Required.',
     },
   },
   hobby1: {
     id: 'hobby1',
     label: '',
-    placeholder: 'hobby3',
-    validation: {
-      required: 'asd!',
-    },
+    placeholder: 'hobby 1',
   },
   hobby2: {
     id: 'hobby2',
     label: '',
-    placeholder: 'hobby3',
-    validation: {
-      required: 'asd!',
-    },
+    placeholder: 'hobby 2',
   },
   hobby3: {
     id: 'hobby3',
     label: '',
-    placeholder: 'hobby3',
-    validation: {
-      required: 'asd!',
-    },
+    placeholder: 'hobby 3',
   },
 };
 
@@ -87,7 +78,7 @@ interface InputProps {
   id: string;
   label: string;
   placeholder: string;
-  validation: {
+  validation?: {
     required: string;
   };
 }

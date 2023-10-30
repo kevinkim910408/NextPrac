@@ -4,7 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import FormInput from '@/contexts/FormInput';
 import { fieldOptions } from '@/data/const';
 
-const InputForm = () => {
+const InputFormComponent = () => {
   const methods = useForm();
 
   //temp
@@ -42,4 +42,4 @@ const InputForm = () => {
   );
 };
 
-export default InputForm;
+export default InputFormComponent;

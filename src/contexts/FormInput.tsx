@@ -24,7 +24,18 @@ export default function FormInput({
   } = useFormContext();
   return (
     <div>
-      {label ? <label htmlFor={id}> {label}</label> : null}
+      <div className="flexRowGap1">
+        {label ? <label htmlFor={id}> {label}</label> : null}{' '}
+        {Object.keys(errors).map((fieldName) => {
+          if (fieldName === id) {
+            return (
+              <p key={fieldName} role="alert" className="warning">
+                {String(errors[fieldName]?.message)}
+              </p>
+            );
+          }
+        })}
+      </div>
       <input
         {...register(id, validation)}
         {...rest}
@@ -34,11 +45,6 @@ export default function FormInput({
         readOnly={readOnly}
         placeholder={placeholder}
       />
-      {errors && (
-        <p role="alert" className="warning">
-          {String(errors.root?.message)}
-        </p>
-      )}
     </div>
   );
 }
