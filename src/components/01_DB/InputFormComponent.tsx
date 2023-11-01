@@ -8,9 +8,9 @@ interface DataType {
   name: string;
   email: string;
   age: string;
-  hobbh1?: string;
-  hobbh2?: string;
-  hobbh3?: string;
+  hobby1?: string;
+  hobby2?: string;
+  hobby3?: string;
 }
 
 const InputFormComponent = ({ dbtype }: { dbtype: string }) => {
@@ -68,7 +68,7 @@ async function sendData(dbtype: string, data: DataType) {
     age: data.age,
     name: data.name,
     email: data.email,
-    hobby: [data.hobbh1, data.hobbh2, data.hobbh3],
+    hobbies: [data.hobby1, data.hobby2, data.hobby3],
   };
 
   let url = `/api/db/${dbtype}`;
