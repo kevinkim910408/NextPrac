@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation';
 const DeleteIcon = ({ dbtype, id }: { dbtype: string; id: string }) => {
   const router = useRouter();
 
-  const onClick = async (data: any) => {
+  const onClick = async (id: string) => {
     try {
-      await deleteData(dbtype, data);
+      await deleteData(dbtype, id);
       router.refresh();
     } catch (error) {
       console.error('Error sending data:', error);
