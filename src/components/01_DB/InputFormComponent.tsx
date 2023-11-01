@@ -1,8 +1,8 @@
 'use client';
-import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { fieldOptions } from '@/data/const';
 import { ReactHookFormInput } from '@/contexts';
+import { useRouter } from 'next/navigation';
 
 interface DataType {
   name: string;
@@ -16,13 +16,18 @@ interface DataType {
 const InputFormComponent = ({ dbtype }: { dbtype: string }) => {
   const methods = useForm();
 
+  const router = useRouter();
+
   const onSubmit = async (data: any) => {
     try {
       await sendData(dbtype, data);
+      methods.reset();
+      router.refresh();
     } catch (error) {
       console.error('Error sending data:', error);
     }
   };
+
   return (
     <div className="page-content">
       <FormProvider {...methods}>
@@ -66,19 +71,7 @@ async function sendData(dbtype: string, data: DataType) {
     hobby: [data.hobbh1, data.hobbh2, data.hobbh3],
   };
 
-  let url: any;
-
-  switch (dbtype) {
-    case 'mongo':
-      url = `/api/db/mongo`;
-      break;
-    case 'postgres':
-      break;
-    case 'mysql':
-      break;
-    default:
-      throw new Error(`Unknown type of DB: ${dbtype}`);
-  }
+  let url = `/api/db/${dbtype}`;
 
   const res = await fetch(url, {
     method: 'POST',

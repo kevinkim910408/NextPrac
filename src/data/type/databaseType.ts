@@ -3,4 +3,5 @@ export interface DBType {
   email: string;
   age: number;
   hobbies: string[];
+  _id: string;
 }

@@ -1,7 +1,7 @@
 import { DBType } from '@/data/type/databaseType';
+import { RiEditLine } from 'react-icons/ri';
+import DeleteIcon from './DeleteIcon';
 import './dbStyles.css';
-import { RiDeleteBin5Line, RiEditLine } from 'react-icons/ri';
-import { cache } from 'react';
 
 type TDB = 'mongo' | 'postgres' | 'mysql';
 
@@ -17,7 +17,7 @@ const ShowCard = async ({ dbtype }: { dbtype: TDB }) => {
           >
             <div className="db-icon-bottom">
               <RiEditLine size={27} cursor="pointer" />
-              <RiDeleteBin5Line size={27} cursor="pointer" />
+              <DeleteIcon id={v._id} dbtype={dbtype} />
             </div>
             <div className="card-item-bg" />
             <div className="card-item-content-box">
@@ -58,19 +58,10 @@ const ShowCard = async ({ dbtype }: { dbtype: TDB }) => {
 export default ShowCard;
 
 async function fetchData(dbtype: TDB) {
-  switch (dbtype) {
-    case 'mongo':
-      const res = await fetch(`${process.env.SERVER_ENV}/api/db/mongo`, {
-        cache: 'no-cache',
-        method: 'GET',
-      });
-      const data = await res.json();
-      return data.data;
-    case 'postgres':
-      return [];
-    case 'mysql':
-      return [];
-    default:
-      throw new Error(`Unknown type of DB: ${dbtype}`);
-  }
+  const res = await fetch(`${process.env.SERVER_ENV}/api/db/${dbtype}`, {
+    cache: 'no-cache',
+    method: 'GET',
+  });
+  const data = await res.json();
+  return data.data;
 }
